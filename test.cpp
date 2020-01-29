@@ -188,11 +188,11 @@ class TestArrayMethods {
         cout->t_true(starr3->getSize() == 5);
         starr3->removeAll(s3);
         cout->t_true(starr3->getSize() == 2);
-        s = (String*) starr->get(0);
+        s = (String*) starr3->get(0);
         cout->t_true(s->equals(s1));
-        starr->remove(s1);
+        starr3->remove(s1);
         cout->t_true(starr3->getSize() == 1);
-        s = (String*) starr->get(0);
+        s = (String*) starr3->get(0);
         cout->t_true(s->equals(s2));
         starr4 = (StringArray*) starr->subArray(3,5);
         cout->t_true(starr4->equals(starr2));
