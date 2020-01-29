@@ -39,6 +39,11 @@ class TestArrayMethods {
         s2 = new String("Bravo");
         s3 = new String("Charlie");
         s4 = new String("Delta");
+        starr = new StringArray();
+        starr2 = new StringArray();
+        starr3 = new StringArray();
+        starr4 = new StringArray();
+
     }
 
     void clear() {
