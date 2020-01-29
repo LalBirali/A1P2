@@ -148,7 +148,7 @@ class TestArrayMethods {
         arr3->add(b);
         arr3->add(c);
         cout->t_true(sub2->equals(arr3));
-        Array* sub3 = arr->subArray(0,3);
+        Array* sub3 = arr->subArray(1,4);
         arr4->add(b);
         arr4->add(c);
         arr4->add(d);
