@@ -101,7 +101,7 @@ class TestArrayMethods {
         cout->pln("Add All works at beginning");
         arr4->add(d);
         arr4->add(d);
-        arr->addAll(arr4);
+        arr->addAll(arr4,1);
         cout->t_true(arr->get(1)->equals(d));
         cout->t_true(arr->get(2)->equals(d));
         cout->t_true(arr->get(3)->equals(b));
