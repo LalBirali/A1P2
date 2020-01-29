@@ -75,10 +75,10 @@ class TestArrayMethods {
         cout->pln("Add at beginning works");
         arr->add(c, 1);
         cout->t_true(arr->get(1)->equals(c));
-        cout->t_true(arr->get(2)->equals(b));
+        cout->t_true(arr->get(2)->equals(a));
         cout->pln("Add at middle works");
         arr->add(d, 3);
-        cout->t_true(arr->get(2)->equals(b));
+        cout->t_true(arr->get(2)->equals(a));
         cout->t_true(arr->get(3)->equals(d));
         cout->pln("Add at end works");
         clear();
