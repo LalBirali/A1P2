@@ -11,25 +11,28 @@
  **/
 class Object {
 public:
-	size_t hash_;
 
-	Object() { hash_ = 0; } 
+	Object(); 
 
-	virtual ~Object() {}
+	virtual ~Object();
 
-	size_t hash() { 
-		if (hash_ == 0)
-			hash_ = hash_me_();
-		return hash_;
-	}
+	/**
+	 * Done for hashing this object. 
+	 **/
+	size_t hash();
 
-	virtual size_t hash_me_() { 
-		return reinterpret_cast<size_t>(this);
-	}
+	/**
+	 * Is this object equal to the passed in argument. 
+	 * @args the object for comparison
+	 * @return whether or not this object is equivalent to the given one 
+	 **/
+	virtual bool equals(Object* other);
 
-	virtual bool equals(Object* other) {
-		return this == other;
-	}
+	/**
+	 * @return a char* representation of this given object
+	 **/
+    virtual char* to_string();
 
-    virtual char* to_string() {return NULL;}
+	virtual void print(); //for printing a representation of this Object to the console.
+
 };
