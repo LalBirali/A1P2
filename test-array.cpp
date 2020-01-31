@@ -22,6 +22,18 @@ class TestArrayMethods {
     StringArray* starr2;
     StringArray* starr3;
     StringArray* starr4;
+    IntArray* iarr;
+    IntArray* iarr2;
+    IntArray* iarr3;
+    IntArray* iarr4;
+    FloatArray* farr; 
+    FloatArray* farr2; 
+    FloatArray* farr3; 
+    FloatArray* farr4; 
+    BoolArray* barr;
+    BoolArray* barr2;
+    BoolArray* barr3;
+    BoolArray* barr4;
 
     Cout* cout;
 
@@ -43,6 +55,18 @@ class TestArrayMethods {
         starr2 = new StringArray();
         starr3 = new StringArray();
         starr4 = new StringArray();
+        iarr = new IntArray();
+        farr = new FloatArray();
+        barr = new BoolArray();
+        iarr2 = new IntArray();
+        farr2 = new FloatArray();
+        barr2 = new BoolArray();
+        iarr3 = new IntArray();
+        farr3 = new FloatArray();
+        barr3 = new BoolArray();
+        iarr4 = new IntArray();
+        farr4 = new FloatArray();
+        barr4 = new BoolArray();
 
     }
 
@@ -63,6 +87,18 @@ class TestArrayMethods {
         delete starr2;
         delete starr3;
         delete starr4;
+        delete iarr;
+        delete farr;
+        delete barr;
+        delete iarr2;
+        delete farr2;
+        delete barr2;
+        delete iarr3;
+        delete farr3;
+        delete barr3;
+        delete iarr4;
+        delete farr4;
+        delete barr4;
     }
 
 
@@ -216,6 +252,95 @@ class TestArrayMethods {
         clear();
     }
 
+    void testBasicIntArray() {
+        initconditions();
+        iarr->add(1);
+        iarr->add(2);
+        cout->t_true(iarr->get(0) == 1);
+        iarr->add(0,0);
+        cout->t_true(iarr->get(0) == 0);
+        cout->t_true(iarr->getSize() == 3);
+        iarr2->add(3);
+        iarr2->add(4);
+        iarr->addAll(iarr2);
+        cout->t_true(iarr->getSize() == 5);
+        iarr3->add(0);
+        iarr3->add(1);
+        iarr3->add(2);
+        iarr3->add(3);
+        iarr3->add(4);
+        cout->t_true(iarr->equals(iarr3));
+        cout->t_true(iarr3->getSize() == 5);
+        iarr3->removeAll(0);
+        cout->t_true(iarr3->getSize() == 4);
+        cout->t_true(iarr3->get(0) == 1);
+        iarr3->remove(1);
+        cout->t_true(iarr3->getSize() == 3);
+        cout->t_true(iarr3->get(0) == 2);
+        iarr4 = iarr->subArray(2,4);
+        cout->t_true(iarr4->equals(iarr3));
+        cout->pln("Basic Int Array Functions work");
+        clear();
+    }
+
+    void testBasicFloatArray() {
+        initconditions();
+        farr->add(1.1);
+        farr->add(2.1);
+        cout->t_true(farr->get(0) == 1.1);
+        farr->add(0.1,0);
+        cout->t_true(farr->get(0) == 0.1);
+        cout->t_true(farr->getSize() == 3);
+        farr2->add(3.1);
+        farr2->add(4.1);
+        farr->addAll(farr2);
+        cout->t_true(farr->getSize() == 5);
+        farr3->add(0.1);
+        farr3->add(1.1);
+        farr3->add(2.1);
+        farr3->add(3.1);
+        farr3->add(4.1);
+        cout->t_true(farr->equals(farr3));
+        cout->t_true(farr3->getSize() == 5);
+        farr3->removeAll(0.1);
+        cout->t_true(farr3->getSize() == 4);
+        cout->t_true(farr3->get(0) == 1.1);
+        farr3->remove(1.1);
+        cout->t_true(farr3->getSize() == 3);
+        cout->t_true(farr3->get(0) == 2.1);
+        farr4 = farr->subArray(2,4);
+        cout->t_true(farr4->equals(farr3));
+        cout->pln("Basic Float Array Functions work");
+        clear();
+    }
+    void testBasicBoolArray() {
+        initconditions();
+        barr->add(1);
+        barr->add(0);
+        cout->t_true(barr->get(0) == 1);
+        barr->add(0,0);
+        cout->t_true(barr->get(0) == 0);
+        cout->t_true(barr->getSize() == 3);
+        barr2->add(1);
+        barr2->add(0);
+        barr->addAll(barr2);
+        cout->t_true(barr->getSize() == 5);
+        barr3->add(0);
+        barr3->add(1);
+        barr3->add(0);
+        barr3->add(1);
+        barr3->add(0);
+        cout->t_true(barr->equals(barr3));
+        cout->t_true(barr3->getSize() == 5);
+        barr3->removeAll(0);
+        cout->t_true(barr3->getSize() == 2);
+        cout->t_true(barr3->get(0) == 1);
+        barr3->remove(1);
+        cout->t_true(barr3->getSize() == 0);
+        cout->pln("Basic Float Array Functions work");
+        clear();
+    }
+
 };
 
 
@@ -228,5 +353,8 @@ int main() {
     t->testRemoveAndRemoveAll();
     t->testSubArray();
     t->testBasicStringArray();
-    
+    t->testBasicIntArray();
+    t->testBasicFloatArray();
+    t->testBasicBoolArray();
+
 }
