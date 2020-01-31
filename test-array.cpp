@@ -54,7 +54,6 @@ class TestArrayMethods {
         starr = new StringArray();
         starr2 = new StringArray();
         starr3 = new StringArray();
-        starr4 = new StringArray();
         iarr = new IntArray();
         farr = new FloatArray();
         barr = new BoolArray();
@@ -78,6 +77,7 @@ class TestArrayMethods {
         delete arr;
         delete arr2;
         delete arr3;
+        delete arr4;
         delete cout;
         delete s1;
         delete s2;
@@ -211,7 +211,9 @@ class TestArrayMethods {
         cout->t_true(sub3->equals(arr4));
         cout->pln("2 index subarray works");
 
-        delete sub1, sub3, sub2;
+        delete sub1;
+        delete sub2;
+        delete sub3;
         clear();
 
     }
@@ -356,5 +358,5 @@ int main() {
     t->testBasicIntArray();
     t->testBasicFloatArray();
     t->testBasicBoolArray();
-
+    delete t;
 }
