@@ -18,8 +18,6 @@
  * Note that the inital memory outlay is an array of pointers of size 10. We wish to reduce
  * the amount of resizing of the array, which would make several operations have O(n) time instead
  * of O(1) time. The below fields exist to serve as an example of how to implement. 
- * There are several STUB implementations in this API: In order to write a StringArray
- * you will need to extend Array and correctly override the virtual functions. 
  **/
 class Array : public Object {
 public:
@@ -52,7 +50,7 @@ public:
      * Clears the array and reinitializes the underlying array to 10 spots with no elements. 
      * Reinitializes the size to 0. 
      **/
-    virtual void clear();
+    void clear();
 
     /**
      * Resizing the underlying array. And then copying over the elements to a new array with
@@ -60,14 +58,14 @@ public:
      * Default is doubling the array size when the max capacity of the 
      * underlying array less the number of elements is 2. 
      **/
-    virtual void resize();
+    void resize();
 
     /**
      * Returns the first index of the of given Object pointer. 
      * If the object pointer is not found then -1 is returned.
      * @arg to_find Object to find the index of. 
      **/
-    virtual int indexOf(Object* to_find);
+    int indexOf(Object* to_find);
 
     /**
      * Adds the element provided to the end of the list, unless the given element is NULL, 
@@ -75,7 +73,7 @@ public:
      * then that should be done.
      * @arg to_add Object to be added to the array. 
      **/
-    virtual void add(Object* to_add);
+    void add(Object* to_add);
 
     /**
      * Adds the provided array to the end of the list, unless the given array is NULL, 
@@ -84,7 +82,7 @@ public:
      * added array. If resizing the array is necessary, then that should be done.
      * @arg to_add Array of Objects that all need to be added to this array. 
      **/
-    virtual void addAll(Array* to_add);
+    void addAll(Array* to_add);
 
     /**
      * Adds the provided object at the given index, unless the given object is NULL, 
@@ -96,7 +94,7 @@ public:
      * @arg to_add Object to be added to the array
      * @arg index Location to add the Object at
      **/
-    virtual void add(Object* to_add, size_t index);
+    void add(Object* to_add, size_t index);
 
     /**
      * Adds all the elements of the provided array at the given index, 
@@ -109,14 +107,14 @@ public:
      * @arg to_add Array of Objects to be added to the array
      * @arg index Location to add the objects to the array at
      **/
-    virtual void addAll(Array* to_add, size_t index);
+    void addAll(Array* to_add, size_t index);
 
     /**
      * Returns the subarray starting from the provided index to the end of the array. 
      * If the index is invalid, then the method returns NULL
      * @arg index Starting place for the subarray
      **/
-    virtual Array* subArray(size_t index);
+    Array* subArray(size_t index);
 
     /**
      * Returns the subarray starting from the provided index to the ending index
@@ -125,7 +123,7 @@ public:
      * @arg startIndex starting place for the subarray
      * @arg endIndex location of the last object to be put in the subarray
      **/
-    virtual Array* subArray(size_t startIndex, size_t endIndex);
+    Array* subArray(size_t startIndex, size_t endIndex);
 
     /**
      * Removes the first instance of the given Object in this array. If nothing 
@@ -133,7 +131,7 @@ public:
      * element is found.
      * @arg to_remove Object to be removed from the array
      **/
-    virtual void remove(Object* to_remove);
+    void remove(Object* to_remove);
 
     /**
      * Removes all instances of the given Object in this array. If nothing 
@@ -141,12 +139,12 @@ public:
      * elements there are.
      * @arg to_remove Object that all instances in the array will be removed of
      **/
-    virtual void removeAll(Object* to_remove);
+    void removeAll(Object* to_remove);
 
     /**
      * Returns number of elements in the array. 
      **/
-    virtual size_t getSize();
+    size_t getSize();
 
     /**
      * Overriding the Object equals method. 
@@ -381,7 +379,7 @@ class IntArray : public Array {
      * added array. If resizing the array is necessary, then that should be done.
      * @arg to_add Array of Objects that all need to be added to this array. 
      **/
-    virtual void addAll(IntArray* to_add);
+    void addAll(IntArray* to_add);
 
     /**
      * Adds the provided int at the given index. All elements previously at the index and
@@ -392,7 +390,7 @@ class IntArray : public Array {
      * @arg to_add Object to be added to the array
      * @arg index Location to add the Object at
      **/
-    virtual void add(int to_add, size_t index);
+    void add(int to_add, size_t index);
 
     /**
      * Adds all the elements of the provided array at the given index, 
@@ -405,14 +403,14 @@ class IntArray : public Array {
      * @arg to_add Array of Objects to be added to the array
      * @arg index Location to add the objects to the array at
      **/
-    virtual void addAll(IntArray* to_add, size_t index);
+    void addAll(IntArray* to_add, size_t index);
 
     /**
      * Returns the subarray starting from the provided index to the end of the array. 
      * If the index is invalid, then the method returns NULL
      * @arg index Starting place for the subarray
      **/
-    virtual IntArray* subArray(size_t index);
+    IntArray* subArray(size_t index);
 
     /**
      * Returns the subarray starting from the provided index to the ending index
@@ -421,7 +419,7 @@ class IntArray : public Array {
      * @arg startIndex starting place for the subarray
      * @arg endIndex location of the last object to be put in the subarray
      **/
-    virtual IntArray* subArray(size_t startIndex, size_t endIndex);
+    IntArray* subArray(size_t startIndex, size_t endIndex);
 
     /**
      * Removes the first instance of the given int in this array. If nothing 
@@ -442,7 +440,7 @@ class IntArray : public Array {
     /**
      * Returns number of elements in the array. 
      **/
-    virtual size_t getSize();
+    size_t getSize();
 
     /**
      * Overriding the Object equals method. 
@@ -586,7 +584,7 @@ class FloatArray : public Array {
     /**
      * Returns number of elements in the array. 
      **/
-    virtual size_t getSize();
+    size_t getSize();
 
     /**
      * Overriding the Object equals method. 
@@ -729,7 +727,7 @@ class BoolArray : public Array {
     /**
      * Returns number of elements in the array. 
      **/
-    virtual size_t getSize();
+    size_t getSize();
 
     /**
      * Overriding the Object equals method. 
