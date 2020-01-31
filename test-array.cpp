@@ -47,7 +47,22 @@ class TestArrayMethods {
     }
 
     void clear() {
-        delete a, b, c, d, arr, arr2, arr3, cout;
+        delete a;
+        delete b;
+        delete c;
+        delete d;
+        delete arr;
+        delete arr2;
+        delete arr3;
+        delete cout;
+        delete s1;
+        delete s2;
+        delete s3;
+        delete s4;
+        delete starr;
+        delete starr2;
+        delete starr3;
+        delete starr4;
     }
 
 
