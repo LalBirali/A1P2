@@ -222,7 +222,7 @@ class StringArray : public Object {
      * then that should be done.
      * @arg to_add Object to be added to the array. 
      **/
-    void add(Object* to_add);
+    void add(String* to_add);
 
     /**
      * Adds the provided array to the end of the list, unless the given array is NULL, 
@@ -244,7 +244,7 @@ class StringArray : public Object {
      * @arg to_add Object to be added to the array
      * @arg index Location to add the Object at
      **/
-     void add(Object* to_add, size_t index);
+     void add(String* to_add, size_t index);
 
     /**
      * Adds all the elements of the provided array at the given index, 
