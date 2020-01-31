@@ -334,7 +334,7 @@ class TestArrayMethods {
         barr3->add(false);
         cout->t_true(barr->equals(barr3));
         cout->t_true(barr3->getSize() == 5);
-        barr3->removeAll(0);
+        barr3->removeAll(false);
         cout->t_true(barr3->getSize() == 2);
         cout->t_true(barr3->get(0) == true);
         barr3->remove(true);
